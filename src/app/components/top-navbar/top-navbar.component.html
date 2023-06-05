@@ -1,0 +1,23 @@
+<div class="text-center flex justify-between shadow-sm px-3 py-2 lg:p-0">
+  <div class="lg:bg-gray-800 lg:text-white lg:w-64 text-opacity-90 lg:p-4">
+    <h6 class="font-lobster font-normal text-2xl p-2 lg:p-4">
+      Co<span class="font-lobster text-green-400">Ugotować.pl</span>
+    </h6>
+    <div class="hidden lg:block p-1 border-t border-gray-600">
+      <span class="font-nunito font-light text-l"
+        >Baza przepisów od kucharzy dla kucharzy</span
+      >
+    </div>
+  </div>
+  <div class="flex lg:hidden items-center p-2">
+    <button
+      class="hamburger_btn"
+      [ngClass]="{ hamburger_btn_active: toggleSidebar === true }"
+      (click)="onHamburgerClicked()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
