@@ -1,0 +1,50 @@
+<form
+  (ngSubmit)="onSubmit(loginForm)"
+  #loginForm="ngForm"
+  class="login_form"
+  autocomplete="off"
+>
+  <label for="username">Nazwa użytkownika:</label>
+  <input type="text" id="username" name="username" ngModel required />
+  <div *ngIf="currentFormMode === 'register'">
+    <label for="email">Adres email:</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      placeholder="abc@example.com"
+      ngModel
+      [required]="currentFormMode === 'register'"
+    />
+  </div>
+  <label for="password">Hasło:</label>
+  <input
+    type="password"
+    id="userPassword"
+    name="userPassword"
+    minlength="4"
+    maxlength="16"
+    size="16"
+    ngModel
+    required
+  />
+  <input
+    type="password"
+    id="repeatUserPassword"
+    name="repeatUserPassword"
+    placeholder="Powtórz hasło (4-16 znaków)..."
+    minlength="4"
+    maxlength="16"
+    size="16"
+    ngModel
+    *ngIf="currentFormMode === 'register'"
+    [required]="currentFormMode === 'register'"
+  />
+  <button
+    class="w-full bg-green-400 p-3 text-black rounded-xl mt-6 hover:bg-opacity-90 active:bg-opacity-70"
+    type="submit"
+  >
+    <span *ngIf="currentFormMode === 'login'">Zaloguj się</span>
+    <span *ngIf="currentFormMode === 'register'">Utwórz konto</span>
+  </button>
+</form>

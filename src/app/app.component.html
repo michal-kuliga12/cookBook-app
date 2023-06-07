@@ -1,4 +1,6 @@
-<div class="lg:grid lg:grid-cols-layout">
-  <app-full-navbar></app-full-navbar>
-  <app-recipes></app-recipes>
+<div [ngClass]="{ 'lg:grid lg:grid-cols-layout': showNavbar() }">
+  <app-full-navbar *ngIf="showNavbar()"></app-full-navbar>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

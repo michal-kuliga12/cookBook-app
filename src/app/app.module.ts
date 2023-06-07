@@ -8,10 +8,23 @@ import { TopNavbarComponent } from './components/top-navbar/top-navbar.component
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { FullNavbarComponent } from './components/full-navbar/full-navbar.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { IndexComponent } from './pages/index/index.component';
+import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, TopNavbarComponent, SideNavbarComponent, FullNavbarComponent, RecipesComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  declarations: [
+    AppComponent,
+    TopNavbarComponent,
+    SideNavbarComponent,
+    FullNavbarComponent,
+    RecipesComponent,
+    LoginComponent,
+    IndexComponent,
+    LoginFormComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

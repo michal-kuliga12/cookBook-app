@@ -1,0 +1,18 @@
+@tailwind components;
+@layer components {
+  .login_image_borders {
+    @apply lg:rounded-tl-xxl lg:rounded-tr-3xl lg:rounded-bl-3xl lg:rounded-br-xxl;
+  }
+  .login_change_operation_btn {
+    @apply transition flex-1;
+    &__active {
+      @apply bg-green-400 shadow-lg lg:shadow-gray-300;
+    }
+    &:not([disabled]):hover {
+      @apply bg-green-200 cursor-pointer;
+    }
+    &:not([disabled]):active {
+      @apply bg-opacity-80;
+    }
+  }
+}

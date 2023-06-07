@@ -10,6 +10,9 @@ module.exports = {
       gridTemplateColumns: {
         layout: "256px, 1fr",
       },
+      borderRadius: {
+        xxl: "5rem",
+      },
     },
   },
   plugins: [],
