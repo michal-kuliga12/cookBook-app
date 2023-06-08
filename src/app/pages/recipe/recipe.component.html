@@ -1,1 +1,59 @@
-<p>recipe works!</p>
+<div class="grid gap-3 md:grid-cols-7 md:grid-rows-2 md:p-6">
+  <div class="md:col-start-1 md:col-span-3 w-screen sm:w-full relative sm:h-80">
+    <img
+      class="object-cover object-center w-full h-full rounded shadow"
+      src="{{ recipe.photos[0] }}"
+      alt=""
+    />
+  </div>
+  <div
+    class="md:col-start-4 md:col-span-4 px-4 py-6 sm:py-0 flex flex-col justify-between gap-4"
+  >
+    <div class="">
+      <p class="text-xl font-bold">{{ recipe.name }}</p>
+      <p class="text-gray-600">{{ recipe.category }}</p>
+    </div>
+    <div class="flex justify-center gap-4">
+      <div class="flex flex-col items-center justify-between gap-2">
+        <p class="sm:text-base">Czas przygotowania:</p>
+        <span class="recipe_tag_container">
+          <span class="material-symbols-outlined text-3xl"> timer </span>
+          <span>{{ recipe.timeToMake }}</span></span
+        >
+      </div>
+      <div class="flex flex-col items-center justify-between gap-2 w-24">
+        <p class="sm:text-base">Trudność:</p>
+        <span
+          class="recipe_tag_container"
+          [ngClass]="{ recipe_tag_container__easy: recipe.difficulty === 1 }"
+          [ngClass]="{ recipe_tag_container__medium: recipe.difficulty === 2 }"
+          [ngClass]="{ recipe_tag_container__hard: recipe.difficulty === 3 }"
+        >
+          <span
+            class="flex flex-row-reverse justify-center items-center flex-wrap leading-none"
+          >
+            <span
+              class="material-symbols-outlined leading-none text-2xl"
+              *ngFor="let _ of [].constructor(recipe.difficulty)"
+            >
+              star
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="p-2">
+      <p class="text-gray-600 border-b mb-2">Opis:</p>
+      <p class="text-gray-600 text-justify">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo sunt, quis
+        libero fugit ratione cum quaerat ex, incidunt quasi nobis commodi
+        veritatis error? Totam deleniti error officiis! Aliquid, debitis
+        aspernatur?
+      </p>
+    </div>
+  </div>
+  <div class="md:col-start-1 md:col-span-2 p-4"><p>Składniki:</p></div>
+  <div class="p-4">
+    <p class="w-full text-left border-b-2">Przygotowanie:</p>
+  </div>
+</div>

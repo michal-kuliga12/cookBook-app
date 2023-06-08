@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       }
     });
   }
-  showNavbar() {
+  checkForPathWithNoNavbar() {
     if (this.path === '/login') {
       return false;
     } else {

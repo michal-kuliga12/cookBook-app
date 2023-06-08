@@ -16,11 +16,7 @@ export class LoginComponent {
   @ViewChild('loginForm') form!: NgForm;
   constructor(private route: ActivatedRoute) {}
 
-  toggleModeToLoginOrRegister() {
-    if (this.currentFormMode === 'login') {
-      this.currentFormMode = 'register';
-    } else {
-      this.currentFormMode = 'login';
-    }
+  onCurrentFormModeChanged(newFormMode: string) {
+    this.currentFormMode = newFormMode;
   }
 }

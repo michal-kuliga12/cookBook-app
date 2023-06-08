@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  faBowlFood,
+  faBowlRice,
+  faPizzaSlice,
+} from '@fortawesome/free-solid-svg-icons';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -7,7 +12,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
-  // Zrobić typ
+  faPotFood = faPizzaSlice;
   recipes: any[] = [];
 
   constructor(private recipesService: RecipesService) {}

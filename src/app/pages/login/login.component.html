@@ -3,66 +3,15 @@
 >
   <div class="z-10 relative p-4 flex flex-col lg:gap-20 items-center lg:flex-1">
     <!-- HEADER -->
-    <header
-      class="w-full max-w-2xl flex items-center justify-between lg:justify-center"
-    >
-      <a
-        href="#"
-        class="flex items-center gap-2 lg:absolute lg:top-9 lg:left-4 transition hover:text-green-400"
-      >
-        <fa-icon class="text-3xl" [icon]="faArrow"></fa-icon>
-        <span class="text-xl">Wróć</span>
-      </a>
-      <h6
-        class="font-lobster font-normal lg:w-full text-center text-2xl p-2 lg:p-4 lg:border-b"
-      >
-        Co<span class="font-lobster text-green-400">Ugotować.pl</span>
-      </h6>
-    </header>
+    <app-login-header class="w-full max-w-2xl"></app-login-header>
     <!-- CONTENT -->
     <main class="p-4 max-w-lg lg:w-xl lg:max-w-lg">
-      <!-- INFO -->
-      <div class="mb-10 lg:w-96">
-        <div class="" *ngIf="currentFormMode === 'login'">
-          <p class="text-3xl text-center mb-3">Witamy ponownie!</p>
-          <p class="text-sm max-w-sm h-14">
-            Proszę wprowadzić swoje dane poniżej, aby się zalogować
-          </p>
-        </div>
-        <div class="mb-3" *ngIf="currentFormMode === 'register'">
-          <p class="text-3xl text-center mb-3">Witaj użytkowniku!</p>
-          <p class="text-sm max-w-sm h-14">
-            Rejestracja konta w serwisie umożliwi dostęp do jej podstawowych
-            funkcji. Aby się zarejestrować wprowadź swoje dane poniżej
-          </p>
-        </div>
-      </div>
-      <!-- CHANGE MODE BUTTON -->
-      <div
-        class="bg-gray-300 flex items-stretch text-black w-full h-11 rounded-full"
-      >
-        <button
-          [disabled]="currentFormMode === 'login'"
-          [ngClass]="{
-            login_change_operation_btn__active: currentFormMode === 'login'
-          }"
-          (click)="toggleModeToLoginOrRegister()"
-          class="login_change_operation_btn rounded-l-full"
-        >
-          Logowanie
-        </button>
-        <button
-          [disabled]="currentFormMode === 'register'"
-          [ngClass]="{
-            login_change_operation_btn__active: currentFormMode === 'register'
-          }"
-          (click)="toggleModeToLoginOrRegister()"
-          class="login_change_operation_btn rounded-r-full"
-        >
-          Rejestracja
-        </button>
-      </div>
-      <!-- FORM -->
+      <app-login-info-bar
+        [currentFormMode]="currentFormMode"
+      ></app-login-info-bar>
+      <app-login-change-mode-btn
+        (currentFormModeChanged)="onCurrentFormModeChanged($event)"
+      ></app-login-change-mode-btn>
       <app-login-form [passedFormMode]="currentFormMode"></app-login-form>
     </main>
   </div>

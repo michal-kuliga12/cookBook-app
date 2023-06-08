@@ -18,9 +18,10 @@ export class RecipeComponent implements OnInit {
   ngOnInit(): void {
     this.recipeId = this.activatedRoute.snapshot.params['id'];
     this.recipe = this.getServiceRecipe();
+    console.log(this.recipe);
   }
   getServiceRecipe() {
-    this.recipesService.recipes.find(
+    return this.recipesService.recipes.find(
       (mappedRecipeId: any) => mappedRecipeId.id === this.recipeId
     );
   }

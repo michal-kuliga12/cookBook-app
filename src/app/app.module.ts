@@ -13,6 +13,9 @@ import { IndexComponent } from './pages/index/index.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RecipeComponent } from './pages/recipe/recipe.component';
+import { LoginHeaderComponent } from './components/login-header/login-header.component';
+import { LoginInfoBarComponent } from './components/login-info-bar/login-info-bar.component';
+import { LoginChangeModeBtnComponent } from './components/login-change-mode-btn/login-change-mode-btn.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { RecipeComponent } from './pages/recipe/recipe.component';
     IndexComponent,
     LoginFormComponent,
     RecipeComponent,
+    LoginHeaderComponent,
+    LoginInfoBarComponent,
+    LoginChangeModeBtnComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [],

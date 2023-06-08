@@ -1,0 +1,15 @@
+<div class="mb-10 lg:w-96">
+  <div class="" *ngIf="currentFormMode === 'login'">
+    <p class="text-3xl text-center mb-3">Witamy ponownie!</p>
+    <p class="text-sm max-w-sm h-14">
+      Proszę wprowadzić swoje dane poniżej, aby się zalogować
+    </p>
+  </div>
+  <div class="mb-3" *ngIf="currentFormMode === 'register'">
+    <p class="text-3xl text-center mb-3">Witaj użytkowniku!</p>
+    <p class="text-sm max-w-sm h-14">
+      Rejestracja konta w serwisie umożliwi dostęp do jej podstawowych funkcji.
+      Aby się zarejestrować wprowadź swoje dane poniżej
+    </p>
+  </div>
+</div>
