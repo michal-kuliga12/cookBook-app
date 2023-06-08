@@ -3,8 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
+  ActivationStart,
   Event,
+  NavigationEnd,
+  NavigationStart,
   Router,
+  RoutesRecognized,
 } from '@angular/router';
 
 @Component({
@@ -16,9 +20,13 @@ export class AppComponent implements OnInit {
   title = 'food-recipes-app';
   path: string = '';
   isNavbarDisplayed: boolean = true;
-  constructor(private location: Location) {}
+  constructor(private router: Router, private location: Location) {}
   ngOnInit(): void {
-    this.path = this.location.path();
+    this.router.events.subscribe((routerEvent: Event) => {
+      if (routerEvent instanceof NavigationEnd) {
+        this.path = this.location.path();
+      }
+    });
   }
   showNavbar() {
     if (this.path === '/login') {
@@ -27,4 +35,6 @@ export class AppComponent implements OnInit {
       return true;
     }
   }
+
+  showLoadingIndicator() {}
 }
