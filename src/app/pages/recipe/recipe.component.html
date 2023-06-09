@@ -1,5 +1,7 @@
-<div class="grid gap-3 md:grid-cols-7 md:grid-rows-2 md:p-6">
-  <div class="md:col-start-1 md:col-span-3 w-screen sm:w-full relative sm:h-80">
+<div class="grid gap-3 md:grid-cols-7 md:grid-rows-2 md:p-6 lg:p-12">
+  <div
+    class="flex items-center md:col-start-1 md:col-span-3 w-screen sm:w-full relative sm:h-80"
+  >
     <img
       class="object-cover object-center w-full h-full rounded shadow"
       src="{{ recipe.photos[0] }}"
@@ -7,7 +9,7 @@
     />
   </div>
   <div
-    class="md:col-start-4 md:col-span-4 px-4 py-6 sm:py-0 flex flex-col justify-between gap-4"
+    class="bg-gray-100 md:col-start-4 md:col-span-4 px-4 py-6 sm:py-2 flex flex-col justify-between gap-4"
   >
     <div class="">
       <p class="text-xl font-bold">{{ recipe.name }}</p>
@@ -52,8 +54,52 @@
       </p>
     </div>
   </div>
-  <div class="md:col-start-1 md:col-span-2 p-4"><p>Składniki:</p></div>
-  <div class="p-4">
-    <p class="w-full text-left border-b-2">Przygotowanie:</p>
+  <div class="md:col-start-1 md:col-span-3 p-2 rounded bg-opacity-40">
+    <p class="text-lg font-bold">Składniki:</p>
+    <div class="rounded p-2">
+      <ul
+        class="list-none decoration-green border-b"
+        *ngFor="let _ of [].constructor(4)"
+      >
+        <li
+          class="before:content-['•'] flex items-center before:text-2xl gap-2 before:leading-none before:text-green-500"
+        >
+          <label
+            class="checkbox-container flex items-center m-0 justify-between w-full"
+            for="ingredient"
+          >
+            <span class="text-lg">
+              <span class="mr-2">2</span>
+              <span>Jaja</span>
+            </span>
+            <span>
+              <input id="ingredient" type="checkbox" checked="checked" />
+              <span class="checkmark"></span>
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="p-4 md:col-start-4 md:col-span-4">
+    <p
+      class="w-full text-left border-b-4 p-2 border-green-600 rounded text-xl font-bold"
+    >
+      Przygotowanie krok po kroku:
+    </p>
+    <ul>
+      <li class="recipe-step before:content-['1.']">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis beatae,
+        hic ducimus aperiam accusamus placeat quis iure! Distinctio sapiente
+        possimus incidunt assumenda aliquid veniam blanditiis dicta fugiat,
+        explicabo voluptate exercitationem.
+      </li>
+      <li class="recipe-step before:content-['2.']">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis beatae,
+        hic ducimus aperiam accusamus placeat quis iure! Distinctio sapiente
+        possimus incidunt assumenda aliquid veniam blanditiis dicta fugiat,
+        explicabo voluptate exercitationem.
+      </li>
+    </ul>
   </div>
 </div>
