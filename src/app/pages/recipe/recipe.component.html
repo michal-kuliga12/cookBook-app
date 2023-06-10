@@ -1,4 +1,6 @@
-<div class="grid gap-3 md:grid-cols-7 md:grid-rows-2 md:p-6 lg:p-12">
+<div
+  class="grid md:gap-3 md:grid-cols-7 md:grid-rows-[360px,1fr] md:p-6 lg:p-12 lg:pb-28"
+>
   <div
     class="flex items-center md:col-start-1 md:col-span-3 w-screen sm:w-full relative sm:h-80"
   >
@@ -57,38 +59,40 @@
   <div class="md:col-start-1 md:col-span-3 p-2 rounded bg-opacity-40">
     <p class="text-lg font-bold">Składniki:</p>
     <div class="rounded p-2">
-      <ul class="list-none decoration-green">
+      <ul class="list-none decoration-green text-sm">
         <li
-          *ngFor="let id of [].constructor(4)"
+          *ngFor="let ingredient of recipe.ingredients"
           class="before:content-['•'] flex relative items-center p-1 before:text-2xl gap-2 before:leading-none before:text-green-500 border-b"
         >
-          <app-custom-checkbox class="flex w-full">
-            <span class="quantity">2</span>
-            <span class="ingredient">Jaja</span>
+          <app-custom-checkbox class="flex w-full items-center">
+            <span class="quantity text-sm leading-6 sm:text-base w-12">{{
+              ingredient.quantity
+            }}</span>
+            <span class="ingredient text-sm leading-6 sm:text-base">{{
+              ingredient.ingredient
+            }}</span>
           </app-custom-checkbox>
         </li>
       </ul>
     </div>
   </div>
-  <div class="p-4 md:col-start-4 md:col-span-4">
+  <div class="p-4 md:p-0 md:col-start-4 md:col-span-4">
     <p
       class="w-full text-left border-b-4 p-2 border-green-600 rounded text-xl font-bold"
     >
       Przygotowanie krok po kroku:
     </p>
     <ul>
-      <li class="recipe-step before:content-['1.']">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis beatae,
-        hic ducimus aperiam accusamus placeat quis iure! Distinctio sapiente
-        possimus incidunt assumenda aliquid veniam blanditiis dicta fugiat,
-        explicabo voluptate exercitationem.
-      </li>
-      <li class="recipe-step before:content-['2.']">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis beatae,
-        hic ducimus aperiam accusamus placeat quis iure! Distinctio sapiente
-        possimus incidunt assumenda aliquid veniam blanditiis dicta fugiat,
-        explicabo voluptate exercitationem.
+      <li
+        *ngFor="let step of recipe.steps"
+        class="recipe-step before:content-['{{ step.id }}.']"
+      >
+        {{ step.step }}
       </li>
     </ul>
   </div>
+  <img
+    class="hidden md:block fixed w-full bottom-0 left-0 h-24"
+    src="assets/Wave.svg"
+  />
 </div>

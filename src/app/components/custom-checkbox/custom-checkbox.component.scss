@@ -1,11 +1,12 @@
 /* The container */
 .checkbox-container {
   display: flex;
+  justify-content: space-between;
   flex: 1;
   height: 22px;
   flex-direction: row;
   position: relative;
-  padding-right: 30px;
+
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -25,7 +26,7 @@
 
 /* Create a custom checkbox */
 .checkbox-mark {
-  position: absolute;
+  position: static;
   left: 280px;
   top: 0;
   height: 22px;
@@ -46,7 +47,7 @@
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-mark:after {
   content: "";
-  position: absolute;
+  position: relative;
   display: none;
 }
 

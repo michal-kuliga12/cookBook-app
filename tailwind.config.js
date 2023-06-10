@@ -7,6 +7,9 @@ module.exports = {
       nunito: ["Nunito Sans"],
     },
     extend: {
+      screens: {
+        xs: "480px",
+      },
       gridTemplateColumns: {
         layout: "256px, 1fr",
       },

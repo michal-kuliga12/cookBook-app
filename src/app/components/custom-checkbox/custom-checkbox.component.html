@@ -1,5 +1,8 @@
-<label class="checkbox-container">
-  <p class="flex gap-2 text-lg">
+<label
+  class="checkbox-container"
+  [ngClass]="{ 'text-gray-300': checked === true }"
+>
+  <p class="checkbox-item flex gap-2 text-lg">
     <ng-content select=".quantity"> </ng-content>
     <ng-content select=".ingredient"> </ng-content>
   </p>
