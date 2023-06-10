@@ -57,26 +57,15 @@
   <div class="md:col-start-1 md:col-span-3 p-2 rounded bg-opacity-40">
     <p class="text-lg font-bold">Składniki:</p>
     <div class="rounded p-2">
-      <ul
-        class="list-none decoration-green border-b"
-        *ngFor="let _ of [].constructor(4)"
-      >
+      <ul class="list-none decoration-green">
         <li
-          class="before:content-['•'] flex items-center before:text-2xl gap-2 before:leading-none before:text-green-500"
+          *ngFor="let id of [].constructor(4)"
+          class="before:content-['•'] flex relative items-center p-1 before:text-2xl gap-2 before:leading-none before:text-green-500 border-b"
         >
-          <label
-            class="checkbox-container flex items-center m-0 justify-between w-full"
-            for="ingredient"
-          >
-            <span class="text-lg">
-              <span class="mr-2">2</span>
-              <span>Jaja</span>
-            </span>
-            <span>
-              <input id="ingredient" type="checkbox" checked="checked" />
-              <span class="checkmark"></span>
-            </span>
-          </label>
+          <app-custom-checkbox class="flex w-full">
+            <span class="quantity">2</span>
+            <span class="ingredient">Jaja</span>
+          </app-custom-checkbox>
         </li>
       </ul>
     </div>

@@ -25,5 +25,7 @@ export class RecipeComponent implements OnInit {
       (mappedRecipeId: any) => mappedRecipeId.id === this.recipeId
     );
   }
-  applyStyleToChecked() {}
+  applyStyleToChecked(id: any) {
+    console.log(id);
+  }
 }

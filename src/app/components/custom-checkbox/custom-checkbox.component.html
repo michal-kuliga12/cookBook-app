@@ -1,0 +1,13 @@
+<label class="checkbox-container">
+  <p class="flex gap-2 text-lg">
+    <ng-content select=".quantity"> </ng-content>
+    <ng-content select=".ingredient"> </ng-content>
+  </p>
+  <input
+    class="checkbox-input"
+    type="checkbox"
+    [ngModel]="checked"
+    (ngModelChange)="onModelChange($event)"
+  />
+  <span class="checkbox-mark"></span>
+</label>
