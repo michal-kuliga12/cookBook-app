@@ -1,18 +1,13 @@
 @tailwind components;
 @layer components {
-  .recipe_tag_container {
-    @apply h-20 w-20 rounded-lg bg-yellow-100 flex flex-col justify-center items-center;
-    &__easy {
-      @apply bg-green-100;
-    }
-    &__medium {
-      @apply bg-orange-200;
-    }
-    &__hard {
-      @apply bg-red-200;
-    }
-  }
   .recipe-step {
     @apply flex gap-4 before:text-3xl before:text-green-700 mt-4;
+  }
+  .recipe_tag_container {
+    &__easy {
+      div span {
+        @apply bg-green-200;
+      }
+    }
   }
 }

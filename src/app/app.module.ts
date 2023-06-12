@@ -17,6 +17,7 @@ import { LoginHeaderComponent } from './components/login-header/login-header.com
 import { LoginInfoBarComponent } from './components/login-info-bar/login-info-bar.component';
 import { LoginChangeModeBtnComponent } from './components/login-change-mode-btn/login-change-mode-btn.component';
 import { CustomCheckboxComponent } from './components/custom-checkbox/custom-checkbox.component';
+import { RecipeInfoTagComponent } from './components/recipe-info-tag/recipe-info-tag.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CustomCheckboxComponent } from './components/custom-checkbox/custom-che
     LoginInfoBarComponent,
     LoginChangeModeBtnComponent,
     CustomCheckboxComponent,
+    RecipeInfoTagComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
   providers: [],

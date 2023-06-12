@@ -1,0 +1,15 @@
+@tailwind components;
+@layer components {
+  .recipe_tag_container {
+    @apply h-16 md:w-20 w-16 md:h-20 rounded-xl bg-yellow-100 flex flex-col justify-center items-center;
+    &__easy {
+      @apply bg-green-200;
+    }
+    &__medium {
+      @apply bg-orange-200;
+    }
+    &__hard {
+      @apply bg-red-200;
+    }
+  }
+}

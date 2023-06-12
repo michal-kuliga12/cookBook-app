@@ -1,0 +1,7 @@
+<div class="flex flex-col items-center justify-between gap-2">
+  <p class="sm:text-base text-center h-10">{{ title }}</p>
+  <span class="recipe_tag_container">
+    <ng-content></ng-content>
+    <span class="flex" *ngIf="value !== ''">{{ value }}</span></span
+  >
+</div>
