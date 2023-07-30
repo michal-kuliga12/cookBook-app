@@ -1,0 +1,17 @@
+<div class="p-2 lg:p-4">
+  <div class="flex justify-between items-center">
+    <div class="">
+      <p class="font-bold">Witaj, Michał!</p>
+      <p class="text-2xl text-black text-opacity-80">Odkrywaj nowe przepisy</p>
+    </div>
+    <div class="lg:px-10">
+      <a
+        [routerLink]="'login'"
+        class="border py-2 px-4 rounded-xl transition hover:border-emerald-400 active:bg-emerald-100 active:border-emerald-200"
+      >
+        Zaloguj się
+      </a>
+    </div>
+  </div>
+  <app-recipes></app-recipes>
+</div>

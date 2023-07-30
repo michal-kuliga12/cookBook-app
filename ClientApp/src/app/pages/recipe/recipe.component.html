@@ -1,0 +1,111 @@
+<div
+  class="grid md:gap-3 md:grid-cols-7 md:grid-rows-[360px,1fr] md:p-6 lg:p-12 lg:pb-28"
+>
+  <div
+    class="flex items-center md:col-start-1 md:col-span-3 w-screen sm:w-full relative sm:h-80"
+  >
+    <img
+      class="object-cover object-center w-full h-full rounded shadow"
+      src="{{ recipe.photos[0] }}"
+      alt=""
+    />
+  </div>
+  <div
+    class="bg-gray-100 md:col-start-4 md:col-span-4 px-4 py-6 sm:py-2 flex flex-col justify-between gap-4"
+  >
+    <div class="">
+      <p class="text-xl font-bold">{{ recipe.name }}</p>
+      <p class="text-gray-600">{{ recipe.category }}</p>
+    </div>
+    <div class="flex justify-center lg:justify-end gap-4">
+      <app-recipe-info-tag
+        class="flex-1"
+        [title]="'Czas przygotowania'"
+        [value]="recipe.timeToMake"
+      >
+        <span
+          class="material-symbols-outlined leading-none text-xl md:text-2xl"
+        >
+          timer
+        </span></app-recipe-info-tag
+      >
+      <app-recipe-info-tag
+        class="flex-1"
+        [title]="'Liczba porcji'"
+        [value]="'2'"
+      >
+        <span
+          class="material-symbols-outlined leading-none text-xl md:text-2xl"
+        >
+          person
+        </span></app-recipe-info-tag
+      >
+      <app-recipe-info-tag
+        class="flex-1"
+        [ngClass]="{ green_bg_on_easy: recipe.difficulty === 1 }"
+        [ngClass]="{ yellow_bg_on_medium: recipe.difficulty === 2 }"
+        [ngClass]="{ red_bg_on_hard: recipe.difficulty === 3 }"
+        [title]="'Trudność'"
+        [value]="''"
+        [difficulty]="recipe.difficulty"
+      >
+        <span>
+          <span
+            class="material-symbols-outlined leading-none text-xl md:text-2xl"
+            *ngFor="let _ of [].constructor(recipe.difficulty)"
+          >
+            star
+          </span>
+        </span></app-recipe-info-tag
+      >
+    </div>
+    <div class="p-2">
+      <p class="text-gray-600 border-b mb-2">Opis:</p>
+      <p class="text-gray-600 text-justify">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo sunt, quis
+        libero fugit ratione cum quaerat ex, incidunt quasi nobis commodi
+        veritatis error? Totam deleniti error officiis! Aliquid, debitis
+        aspernatur?
+      </p>
+    </div>
+  </div>
+  <div class="md:col-start-1 md:col-span-3 p-2 rounded bg-opacity-40">
+    <p class="text-lg font-bold">Składniki:</p>
+    <div class="rounded p-2">
+      <ul class="list-none decoration-green text-sm">
+        <li
+          *ngFor="let ingredient of recipe.ingredients"
+          class="before:content-['•'] flex relative items-center p-1 before:text-2xl gap-2 before:leading-none before:text-green-500 border-b"
+        >
+          <app-custom-checkbox class="flex w-full items-center">
+            <span class="quantity text-sm leading-6 sm:text-base w-12">{{
+              ingredient.quantity
+            }}</span>
+            <span class="ingredient text-sm leading-6 sm:text-base">{{
+              ingredient.ingredient
+            }}</span>
+          </app-custom-checkbox>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="p-4 md:p-0 md:col-start-4 md:col-span-4">
+    <p
+      class="w-full text-left border-b-4 p-2 border-green-600 rounded text-xl font-bold"
+    >
+      Przygotowanie krok po kroku:
+    </p>
+    <ul>
+      <li
+        *ngFor="let step of recipe.steps"
+        class="recipe-step before:content-['{{ step.id }}.']"
+      >
+        {{ step.step }}
+      </li>
+    </ul>
+  </div>
+  <img
+    class="hidden md:block fixed w-full bottom-0 left-0 h-24"
+    src="assets/Wave.svg"
+  />
+</div>

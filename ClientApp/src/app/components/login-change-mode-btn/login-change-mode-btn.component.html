@@ -1,0 +1,22 @@
+<div class="bg-gray-300 flex items-stretch text-black w-full h-11 rounded-full">
+  <button
+    [disabled]="currentFormMode === 'login'"
+    [ngClass]="{
+      login_change_operation_btn__active: currentFormMode === 'login'
+    }"
+    (click)="toggleModeToLoginOrRegister()"
+    class="login_change_operation_btn rounded-l-full"
+  >
+    Logowanie
+  </button>
+  <button
+    [disabled]="currentFormMode === 'register'"
+    [ngClass]="{
+      login_change_operation_btn__active: currentFormMode === 'register'
+    }"
+    (click)="toggleModeToLoginOrRegister()"
+    class="login_change_operation_btn rounded-r-full"
+  >
+    Rejestracja
+  </button>
+</div>

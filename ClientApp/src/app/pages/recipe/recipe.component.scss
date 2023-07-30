@@ -1,0 +1,13 @@
+@tailwind components;
+@layer components {
+  .recipe-step {
+    @apply flex gap-4 before:text-3xl before:text-green-700 mt-4;
+  }
+  .recipe_tag_container {
+    &__easy {
+      div span {
+        @apply bg-green-200;
+      }
+    }
+  }
+}

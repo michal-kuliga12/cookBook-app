@@ -1,0 +1,32 @@
+<div
+  class="text-white text-opacity-80 h-screen p-2 lg:flex lg:text-black lg:p-6"
+>
+  <div class="z-10 relative p-4 flex flex-col lg:gap-20 items-center lg:flex-1">
+    <!-- HEADER -->
+    <app-login-header class="w-full max-w-2xl"></app-login-header>
+    <!-- CONTENT -->
+    <main class="p-4 max-w-lg lg:w-xl lg:max-w-lg">
+      <app-login-info-bar
+        [currentFormMode]="currentFormMode"
+      ></app-login-info-bar>
+      <app-login-change-mode-btn
+        (currentFormModeChanged)="onCurrentFormModeChanged($event)"
+      ></app-login-change-mode-btn>
+      <app-login-form [passedFormMode]="currentFormMode"></app-login-form>
+    </main>
+  </div>
+  <div
+    class="absolute z-0 top-0 left-0 w-full h-full lg:relative lg:flex-1 lg:p-8"
+  >
+    <div class="relative w-full h-full">
+      <img
+        class="object-cover w-full h-full relative login_image_borders"
+        src="/assets/login-bg.jpg"
+        alt=""
+      />
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-black opacity-75 lg:opacity-60 login_image_borders"
+      ></div>
+    </div>
+  </div>
+</div>

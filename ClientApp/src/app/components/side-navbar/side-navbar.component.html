@@ -1,0 +1,23 @@
+<div
+  class="w-64 sidebar_responsive lg:sidebar_layout"
+  [ngClass]="{ sidebar_responsive__active: isSidebarOpen === true }"
+>
+  <div class="bg-gray-50 h-full py-3 px-1">
+    <nav>
+      <ul class="flex flex-col gap-2">
+        <li class="nav_el">
+          <fa-icon [icon]="faHome"></fa-icon>
+          <span>Strona główna</span>
+        </li>
+        <li class="nav_el">
+          <fa-icon [icon]="faUtensils"></fa-icon>
+          <span>Wyszukaj przepis</span>
+        </li>
+        <li class="nav_el">
+          <fa-icon [icon]="faList"></fa-icon>
+          <span>Moje przepisy</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
