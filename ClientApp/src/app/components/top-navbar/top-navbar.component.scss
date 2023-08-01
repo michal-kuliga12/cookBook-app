@@ -1,0 +1,41 @@
+.hamburger_btn {
+  --hamburger_height: 32px;
+  --hamburger_span_height: 3px;
+  width: 46px;
+  height: var(--hamburger_height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.5s;
+  span {
+    width: 100%;
+    height: var(--hamburger_span_height);
+    background-color: rgb(2, 2, 2);
+    transition: 0.2s;
+    &:nth-child(2) {
+      background-color: #04ca18d5;
+    }
+  }
+  &_active {
+    span:nth-child(1) {
+      transform: translateY(
+          calc(var(--hamburger_height) / 2 - var(--hamburger_span_height) / 2)
+        )
+        rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    span:nth-child(3) {
+      transform: translateY(
+          calc(
+            (
+              -1 * var(--hamburger_height) / 2 + var(--hamburger_span_height) / 2
+            )
+          )
+        )
+        rotate(-45deg);
+    }
+  }
+}

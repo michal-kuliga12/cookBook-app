@@ -1,0 +1,36 @@
+@tailwind components;
+
+@layer components {
+  .sidebar_layout {
+    @apply fixed left-0 h-full z-30;
+  }
+
+  .sidebar_responsive {
+    @apply fixed z-30 -right-64 h-full transition-all duration-500;
+    &__active {
+      @apply right-0 w-64 transition-all duration-500;
+    }
+  }
+
+  .nav_category {
+    @apply text-base text-gray-400 font-light px-4;
+  }
+  .nav_el {
+    @apply flex items-center justify-between py-2 px-4 border-r-4 border-r-gray-200;
+
+    fa-icon {
+      @apply text-2xl;
+    }
+    span {
+      @apply text-base;
+    }
+    &:hover {
+      @apply border-green-300 bg-green-200 bg-opacity-40 cursor-pointer transition-colors duration-300;
+      //   @apply border-green-300 bg-gray-800 text-white text-opacity-90 cursor-pointer transition-colors duration-300;
+    }
+    &:active {
+      //   @apply bg-green-300 bg-opacity-30 transition-colors duration-300;
+      @apply bg-green-300 bg-opacity-30 transition-colors duration-300;
+    }
+  }
+}

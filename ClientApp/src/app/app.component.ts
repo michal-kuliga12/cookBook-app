@@ -20,7 +20,9 @@ export class AppComponent implements OnInit {
   title = 'food-recipes-app';
   path: string = '';
   isNavbarDisplayed: boolean = true;
+
   constructor(private router: Router, private location: Location) {}
+
   ngOnInit(): void {
     this.router.events.subscribe((routerEvent: Event) => {
       if (routerEvent instanceof NavigationEnd) {
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
   checkForPathWithNoNavbar() {
     if (this.path === '/login') {
       return false;

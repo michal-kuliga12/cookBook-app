@@ -1,5 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { faHome, faList, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import {
+  IconDefinition,
+  faHome,
+  faList,
+  faPaintBrush,
+  faPalette,
+  faSearch,
+  faStar,
+  faUtensils,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-side-navbar',
@@ -7,9 +16,18 @@ import { faHome, faList, faUtensils } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./side-navbar.component.scss'],
 })
 export class SideNavbarComponent {
-  faHome = faHome;
-  faList = faList;
-  faUtensils = faUtensils;
-
+  public navElements: navElement[] = [
+    { icon: faHome, textContent: 'Strona główna' },
+    { icon: faSearch, textContent: 'Wyszukaj przepis' },
+    { icon: faList, textContent: 'Polecane przepisy' },
+    { icon: faUtensils, textContent: 'Moje przepisy' },
+    { icon: faStar, textContent: 'Ulubione' },
+    { icon: faPalette, textContent: 'Zmień motyw' },
+  ];
   @Input('isSidebarOpen') isSidebarOpen: boolean = false;
+}
+
+interface navElement {
+  icon: IconDefinition;
+  textContent: string;
 }
