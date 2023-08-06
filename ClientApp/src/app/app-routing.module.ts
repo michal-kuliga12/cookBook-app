@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'recipe/:id', component: RecipeComponent },
-  { path: '**', component: LoginComponent },
+  // { path: '**', component: LoginComponent },
 ];
 
 @NgModule({

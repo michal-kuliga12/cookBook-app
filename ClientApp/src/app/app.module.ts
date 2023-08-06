@@ -19,6 +19,7 @@ import { LoginChangeModeBtnComponent } from './components/login-change-mode-btn/
 import { CustomCheckboxComponent } from './components/custom-checkbox/custom-checkbox.component';
 import { RecipeInfoTagComponent } from './components/recipe-info-tag/recipe-info-tag.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginChangeModeBtnComponent,
     CustomCheckboxComponent,
     RecipeInfoTagComponent,
+    FetchDataComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
