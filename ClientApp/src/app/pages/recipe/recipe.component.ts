@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./recipe.component.scss'],
 })
 export class RecipeComponent implements OnInit {
-  recipe: any;
+  recipe?: Recipe = new Recipe();
   recipeId!: number;
   constructor(
     private recipesService: RecipesService,
@@ -17,15 +18,15 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeId = Number(this.activatedRoute.snapshot.params['id']);
-    this.recipe = this.getServiceRecipe();
+    this.assignServiceRecipe();
     console.log(this.recipe);
   }
-  getServiceRecipe() {
-    return this.recipesService.recipes.find(
-      (mappedRecipeId: any) => mappedRecipeId.id === this.recipeId
-    );
-  }
-  applyStyleToChecked(id: any) {
-    console.log(id);
-  }
+
+  assignServiceRecipe = (): void => {
+    this.recipesService
+      .getRecipe(this.recipeId)
+      .subscribe((resultRecipe: Recipe) => {
+        this.recipe = resultRecipe;
+      });
+  };
 }

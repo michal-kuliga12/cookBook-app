@@ -6,7 +6,7 @@
   >
     <img
       class="object-cover object-center w-full h-full rounded shadow"
-      src="{{ recipe.photos[0] }}"
+      src="{{ recipe!.photos[0] }}"
       alt=""
     />
   </div>
@@ -14,11 +14,11 @@
     class="bg-gray-100 md:col-start-4 md:col-span-4 px-4 py-6 sm:py-2 flex flex-col justify-between gap-4"
   >
     <div class="">
-      <p class="text-xl font-bold">{{ recipe.name }}</p>
-      <p class="text-gray-600">{{ recipe.category }}</p>
+      <p class="text-xl font-bold">{{ recipe?.name }}</p>
+      <p class="text-gray-600">{{ recipe?.category }}</p>
     </div>
     <div class="flex justify-center lg:justify-end gap-4">
-      <app-recipe-info-tag
+      <!-- <app-recipe-info-tag
         class="flex-1"
         [title]="'Czas przygotowania'"
         [value]="recipe.timeToMake"
@@ -28,8 +28,8 @@
         >
           timer
         </span></app-recipe-info-tag
-      >
-      <app-recipe-info-tag
+      > -->
+      <!-- <app-recipe-info-tag
         class="flex-1"
         [title]="'Liczba porcji'"
         [value]="'2'"
@@ -39,8 +39,8 @@
         >
           person
         </span></app-recipe-info-tag
-      >
-      <app-recipe-info-tag
+      > -->
+      <!-- <app-recipe-info-tag
         class="flex-1"
         [ngClass]="{ green_bg_on_easy: recipe.difficulty === 1 }"
         [ngClass]="{ yellow_bg_on_medium: recipe.difficulty === 2 }"
@@ -57,7 +57,7 @@
             star
           </span>
         </span></app-recipe-info-tag
-      >
+      > -->
     </div>
     <div class="p-2">
       <p class="text-gray-600 border-b mb-2">Opis:</p>
@@ -74,17 +74,17 @@
     <div class="rounded p-2">
       <ul class="list-none decoration-green text-sm">
         <li
-          *ngFor="let ingredient of recipe.ingredients"
+          *ngFor="let ingredient; in: recipe?.ingredients"
           class="before:content-['•'] flex relative items-center p-1 before:text-2xl gap-2 before:leading-none before:text-green-500 border-b"
         >
-          <app-custom-checkbox class="flex w-full items-center">
+          <!-- <app-custom-checkbox class="flex w-full items-center">
             <span class="quantity text-sm leading-6 sm:text-base w-12">{{
               ingredient.quantity
             }}</span>
             <span class="ingredient text-sm leading-6 sm:text-base">{{
               ingredient.ingredient
             }}</span>
-          </app-custom-checkbox>
+          </app-custom-checkbox> -->
         </li>
       </ul>
     </div>
@@ -97,7 +97,7 @@
     </p>
     <ul>
       <li
-        *ngFor="let step of recipe.steps"
+        *ngFor="let step; in: recipe?.steps"
         class="recipe-step before:content-['{{ step.id }}.']"
       >
         {{ step.step }}

@@ -4,6 +4,7 @@ import {
   faBowlRice,
   faPizzaSlice,
 } from '@fortawesome/free-solid-svg-icons';
+import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -13,11 +14,13 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class RecipesComponent implements OnInit {
   faPotFood = faPizzaSlice;
-  recipes: any[] = [];
+  recipes: Recipe[] = [];
 
   constructor(private recipesService: RecipesService) {}
   ngOnInit(): void {
-    this.recipes = this.recipesService.recipes;
+    this.recipesService
+      .getRecipes()
+      .subscribe((result: Recipe[]) => (this.recipes = result));
     console.log(this.recipes);
   }
 }
