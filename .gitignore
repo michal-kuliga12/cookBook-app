@@ -179,8 +179,8 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
-/ClientApp/node_modules
-/ClientApp/.angular/cache/
+/Client/node_modules
+/Client/.angular/cache/
 
 # RIA/Silverlight projects
 Generated_Code/
