@@ -11,21 +11,13 @@ builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
-builder.Services.AddCors(
-    options =>
-        options.AddPolicy(
-            name: "RecipesOrigins",
-            policy =>
-            {
-                policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
-            }
-        )
-);
+builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseCors("RecipesOrigins");
+app.UseCors(
+    builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200")
+);
 
 app.UseHttpsRedirection();
 

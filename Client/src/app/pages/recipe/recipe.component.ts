@@ -18,15 +18,15 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeId = Number(this.activatedRoute.snapshot.params['id']);
-    this.assignServiceRecipe();
+    // this.assignServiceRecipe();
     console.log(this.recipe);
   }
 
-  assignServiceRecipe = (): void => {
-    this.recipesService
-      .getRecipe(this.recipeId)
-      .subscribe((resultRecipe: Recipe) => {
-        this.recipe = resultRecipe;
-      });
-  };
+  // assignServiceRecipe = (): void => {
+  //   this.recipesService
+  //     .getRecipe(this.recipeId)
+  //     .subscribe((resultRecipe: Recipe) => {
+  //       this.recipe = resultRecipe;
+  //     });
+  // };
 }

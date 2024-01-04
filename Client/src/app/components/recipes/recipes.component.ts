@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   faBowlFood,
@@ -6,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-recipes',
@@ -14,13 +16,20 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class RecipesComponent implements OnInit {
   faPotFood = faPizzaSlice;
-  recipes: Recipe[] = [];
+  recipes: Recipe[] | any = [];
 
-  constructor(private recipesService: RecipesService) {}
+  constructor(
+    private recipesService: RecipesService,
+    private http: HttpClient
+  ) {}
   ngOnInit(): void {
-    this.recipesService
-      .getRecipes()
-      .subscribe((result: Recipe[]) => (this.recipes = result));
-    console.log(this.recipes);
+    this.http.get(`${environment.apiUrl}/recipes/`).subscribe({
+      next: (result: Object) => {
+        console.log(result);
+        this.recipes = result;
+      },
+      error: (err) => console.log(err),
+      complete: () => console.log('Transfer has completed'),
+    });
   }
 }
