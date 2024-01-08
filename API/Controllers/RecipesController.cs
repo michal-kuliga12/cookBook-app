@@ -2,13 +2,10 @@
 using API.Entites;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Any;
 
 namespace API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class RecipesController : ControllerBase
+public class RecipesController : BaseApiController
 {
     private readonly DataContext _context;
 

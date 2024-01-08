@@ -23,10 +23,10 @@ export class RecipesComponent implements OnInit {
     private http: HttpClient
   ) {}
   ngOnInit(): void {
-    this.http.get(`${environment.apiUrl}/recipes/`).subscribe({
+    this.recipesService.getRecipes().subscribe({
       next: (result: Object) => {
-        console.log(result);
         this.recipes = result;
+        console.log(this.recipes);
       },
       error: (err) => console.log(err),
       complete: () => console.log('Transfer has completed'),

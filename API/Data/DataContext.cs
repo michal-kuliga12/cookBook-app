@@ -9,4 +9,5 @@ public class DataContext : DbContext
         : base(options) { }
 
     public DbSet<Recipe> Recipes { get; set; }
+    public DbSet<AppUser> Users { get; set; }
 }

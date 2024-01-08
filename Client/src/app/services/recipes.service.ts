@@ -13,6 +13,12 @@ export class RecipesService {
   constructor(private http: HttpClient) {}
 
   // GetRecipes observable
+  public getRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes`);
+  }
 
   // getRecipe observable
+  public getRecipe(recipeId: number): Observable<Recipe> {
+    return this.http.get<Recipe>(`${environment.apiUrl}/recipes/${recipeId}`);
+  }
 }
