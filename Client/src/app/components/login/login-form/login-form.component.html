@@ -5,8 +5,14 @@
   autocomplete="off"
 >
   <label for="username">Nazwa użytkownika:</label>
-  <input type="text" id="username" name="username" ngModel required />
-  <div *ngIf="currentFormMode === 'register'">
+  <input
+    type="text"
+    id="username"
+    name="username"
+    [(ngModel)]="user.username"
+    required
+  />
+  <!-- <div *ngIf="currentFormMode === 'register'">
     <label for="email">Adres email:</label>
     <input
       type="text"
@@ -16,7 +22,7 @@
       ngModel
       [required]="currentFormMode === 'register'"
     />
-  </div>
+  </div> -->
   <label for="password">Hasło:</label>
   <input
     type="password"
@@ -25,7 +31,7 @@
     minlength="4"
     maxlength="16"
     size="16"
-    ngModel
+    [(ngModel)]="user.password"
     required
   />
   <input
@@ -36,15 +42,15 @@
     minlength="4"
     maxlength="16"
     size="16"
-    ngModel
-    *ngIf="currentFormMode === 'register'"
-    [required]="currentFormMode === 'register'"
+    [(ngModel)]="repeatedPassword"
+    *ngIf="formMode === 'register'"
+    [required]="formMode === 'register'"
   />
   <button
     class="w-full bg-green-400 p-3 text-black rounded-xl mt-6 hover:bg-opacity-90 active:bg-opacity-70"
     type="submit"
   >
-    <span *ngIf="currentFormMode === 'login'">Zaloguj się</span>
-    <span *ngIf="currentFormMode === 'register'">Utwórz konto</span>
+    <span *ngIf="formMode === 'login'">Zaloguj się</span>
+    <span *ngIf="formMode === 'register'">Utwórz konto</span>
   </button>
 </form>

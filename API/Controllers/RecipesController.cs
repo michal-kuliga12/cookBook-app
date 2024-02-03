@@ -1,10 +1,12 @@
 ﻿using API.Data;
 using API.Entites;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
+[Authorize]
 public class RecipesController : BaseApiController
 {
     private readonly DataContext _context;
