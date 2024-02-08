@@ -1,5 +1,6 @@
-<div class="lg:flex lg:flex-col z-50 lg:fixed lg:left-0 lg:top-0">
+<div class="static lg:flex lg:flex-col z-50 lg:fixed lg:left-0 lg:top-0">
   <app-top-navbar
+    class="static"
     (sidebarStatusChanged)="retrieveSidebarStatus($event)"
   ></app-top-navbar>
   <app-side-navbar [isSidebarOpen]="isSidebarOpen"></app-side-navbar>

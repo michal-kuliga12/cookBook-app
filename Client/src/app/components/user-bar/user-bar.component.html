@@ -1,0 +1,13 @@
+<div class="absolute top-5 right-5">
+  <a
+    *ngIf="!(accountService.currentUser$ | async)"
+    [routerLink]="'login'"
+    class="border py-2 px-4 rounded-xl transition hover:border-emerald-400 active:bg-emerald-100 active:border-emerald-200"
+  >
+    Zaloguj się
+  </a>
+
+  <button *ngIf="accountService.currentUser$ | async">
+    <fa-icon [icon]="userEl" class="text-4xl"></fa-icon>
+  </button>
+</div>

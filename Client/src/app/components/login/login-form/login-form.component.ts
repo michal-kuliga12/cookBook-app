@@ -1,6 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UserModel } from 'src/app/models/user.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { ILoginAttemptStatuses } from 'src/app/interfaces/ilogin-attempt-statuses';
+
+import { UserLogin } from 'src/app/models/userLogin.model';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
@@ -10,45 +13,102 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class LoginFormComponent {
   @Input('formMode') formMode: string = 'login';
-  user: UserModel = {
+  @Output()
+  loginAttemptStatusesEmitting: EventEmitter<ILoginAttemptStatuses> =
+    new EventEmitter<ILoginAttemptStatuses>();
+  public user: UserLogin = {
     username: '',
     password: '',
   };
+
+  private loginAttemptStatuses: ILoginAttemptStatuses = {
+    isLoginSuccess: false,
+    isErrorOccured: false,
+    errorDescription: '1',
+  };
+
   repeatedPassword: string = '';
+  // TODO Error popup
 
-  constructor(private accountService: AccountService) {}
+  constructor(private accountService: AccountService, private router: Router) {}
 
-  onSubmit(form: NgForm) {
-    if (this.formMode == 'login') this.Login();
+  onSubmit() {
+    if (this.formMode == 'login') this.login();
     else {
-      this.CheckIfPasswordIsValid();
-      this.Register();
+      this.checkIfPasswordIsValid();
+      this.register();
     }
   }
+  // FIXME - Statusy przed przesłaniem nie są edytowane z jakiegoś powodu - wykorzystywana jest wartość domyślna
 
-  Login() {
-    this.accountService.Login(this.user).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  login() {
+    this.accountService
+      .login(this.user)
+      .pipe(
+        finalize(() => {
+          this.sendingLoginAttemptStatuses();
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.loginAttemptStatuses = {
+            isLoginSuccess: true,
+            isErrorOccured: false,
+            errorDescription: '',
+          };
+
+          this.navigateToHomePage();
+        },
+        error: (error) => {
+          this.loginAttemptStatuses = {
+            isLoginSuccess: false,
+            isErrorOccured: true,
+            errorDescription: error.error,
+          };
+          console.log(error);
+        },
+      });
   }
 
-  Register() {
-    this.accountService.Register(this.user).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+  register() {
+    this.accountService
+      .register(this.user)
+      .pipe(
+        finalize(() => {
+          this.sendingLoginAttemptStatuses();
+        })
+      )
+      .subscribe({
+        next: (response) => {
+          this.loginAttemptStatuses = {
+            isLoginSuccess: true,
+            isErrorOccured: false,
+            errorDescription: '',
+          };
+          this.navigateToHomePage();
+        },
+        error: (error) => {
+          this.loginAttemptStatuses = {
+            isLoginSuccess: false,
+            isErrorOccured: true,
+            errorDescription: error.error,
+          };
+          console.log(error);
+        },
+      });
   }
 
-  CheckIfPasswordIsValid() {
+  navigateToHomePage() {
+    setTimeout(() => {
+      this.router.navigateByUrl('/');
+    }, 3000);
+  }
+
+  checkIfPasswordIsValid() {
     return this.user.password == this.repeatedPassword;
+  }
+
+  sendingLoginAttemptStatuses() {
+    this.loginAttemptStatusesEmitting.emit(this.loginAttemptStatuses);
   }
 }

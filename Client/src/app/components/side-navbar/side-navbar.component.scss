@@ -6,9 +6,9 @@
   }
 
   .sidebar_responsive {
-    @apply fixed z-30 -right-64 h-full transition-all duration-500;
+    @apply fixed z-30 -left-64 h-full transition-all duration-500;
     &__active {
-      @apply right-0 w-64 transition-all duration-500;
+      @apply left-0 w-64 transition-all duration-500;
     }
   }
 

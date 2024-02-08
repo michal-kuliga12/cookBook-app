@@ -1,0 +1,19 @@
+<!-- Będzie zastąpione popupem -->
+<span class="flex justify-center mt-4">
+  <span class="text-red-500" *ngIf="loginAttemptStatuses.isErrorOccured">{{
+    loginAttemptStatuses.errorDescription
+  }}</span>
+  <span
+    class="text-white lg:text-black"
+    *ngIf="loginAttemptStatuses.isLoginSuccess && formMode == 'login'"
+    >Zalogowano się pomyślnie! Teraz nastąpi przekierowanie do strony
+    głównej.</span
+  >
+  <span
+    class="text-white lg:text-black"
+    *ngIf="loginAttemptStatuses.isLoginSuccess && formMode == 'register'"
+    >Udało się utworzyć konto w serwisie! Teraz nastąpi przekierowanie do strony
+    głównej.</span
+  >
+</span>
+<!-- /\ Będzie zastąpione popupem -->

@@ -1,5 +1,5 @@
 <form
-  (ngSubmit)="onSubmit(loginForm)"
+  (ngSubmit)="onSubmit()"
   #loginForm="ngForm"
   class="login_form"
   autocomplete="off"
@@ -12,17 +12,6 @@
     [(ngModel)]="user.username"
     required
   />
-  <!-- <div *ngIf="currentFormMode === 'register'">
-    <label for="email">Adres email:</label>
-    <input
-      type="text"
-      id="email"
-      name="email"
-      placeholder="abc@example.com"
-      ngModel
-      [required]="currentFormMode === 'register'"
-    />
-  </div> -->
   <label for="password">Hasło:</label>
   <input
     type="password"
@@ -43,7 +32,7 @@
     maxlength="16"
     size="16"
     [(ngModel)]="repeatedPassword"
-    *ngIf="formMode === 'register'"
+    [hidden]="formMode === 'login'"
     [required]="formMode === 'register'"
   />
   <button

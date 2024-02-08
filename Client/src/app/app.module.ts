@@ -19,6 +19,8 @@ import { LoginChangeModeBtnComponent } from './components/login/login-change-mod
 import { CustomCheckboxComponent } from './components/custom-checkbox/custom-checkbox.component';
 import { RecipeInfoTagComponent } from './components/recipe-info-tag/recipe-info-tag.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserBarComponent } from './components/user-bar/user-bar.component';
+import { LoginSuccessNotificationComponent } from './components/login/login-success-notification/login-success-notification.component';
 // import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @NgModule({
@@ -37,6 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginChangeModeBtnComponent,
     CustomCheckboxComponent,
     RecipeInfoTagComponent,
+    UserBarComponent,
+    LoginSuccessNotificationComponent,
     // FetchDataComponent,
   ],
   imports: [

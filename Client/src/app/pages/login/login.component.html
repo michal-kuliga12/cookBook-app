@@ -3,17 +3,22 @@
 >
   <div class="z-10 relative p-4 flex flex-col lg:gap-20 items-center lg:flex-1">
     <app-login-header class="w-full max-w-2xl"></app-login-header>
-
-    <main class="p-4 max-w-lg lg:w-xl lg:max-w-lg">
+    <main class="p-4 max-w-sm lg:w-xl lg:w-lg">
       <app-login-info-bar
         [currentFormMode]="currentFormMode"
       ></app-login-info-bar>
-
       <app-login-change-mode-btn
         (currentFormModeChanged)="onCurrentFormModeChanged($event)"
       ></app-login-change-mode-btn>
-
-      <app-login-form [formMode]="currentFormMode"></app-login-form>
+      <!-- TODO Nazwa do zmiany -->
+      <app-login-form
+        [formMode]="currentFormMode"
+        (loginAttemptStatusesEmitting)="onLoginAttemptStatusesReceiving($event)"
+      ></app-login-form>
+      <app-login-success-notification
+        [formMode]="currentFormMode"
+        [loginAttemptStatuses]="loginAttemptStatuses"
+      ></app-login-success-notification>
     </main>
   </div>
 

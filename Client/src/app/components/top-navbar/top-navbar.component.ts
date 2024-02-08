@@ -10,6 +10,7 @@ export class TopNavbarComponent {
 
   @Output()
   sidebarStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   onHamburgerClicked() {
     this.toggleSidebar = !this.toggleSidebar;
     console.log(this.toggleSidebar);
