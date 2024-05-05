@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Icon } from '@fortawesome/fontawesome-svg-core';
 import {
+  faSearch,
   faUserCircle,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +16,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class UserBarComponent {
   userEl: IconDefinition = faUserCircle;
+  search: IconDefinition = faSearch;
 
   constructor(public accountService: AccountService) {}
 }

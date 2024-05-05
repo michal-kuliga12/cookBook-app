@@ -27,12 +27,14 @@ export class LoginFormComponent {
     errorDescription: '1',
   };
 
+  isSubmitButtonActive: boolean = true;
   repeatedPassword: string = '';
   // TODO Error popup
 
   constructor(private accountService: AccountService, private router: Router) {}
 
   onSubmit() {
+    this.isSubmitButtonActive = false;
     if (this.formMode == 'login') this.login();
     else {
       this.checkIfPasswordIsValid();
@@ -47,16 +49,16 @@ export class LoginFormComponent {
       .pipe(
         finalize(() => {
           this.sendingLoginAttemptStatuses();
+          this.isSubmitButtonActive = false;
         })
       )
       .subscribe({
-        next: () => {
+        next: (_) => {
           this.loginAttemptStatuses = {
             isLoginSuccess: true,
             isErrorOccured: false,
             errorDescription: '',
           };
-
           this.navigateToHomePage();
         },
         error: (error) => {
@@ -65,7 +67,6 @@ export class LoginFormComponent {
             isErrorOccured: true,
             errorDescription: error.error,
           };
-          console.log(error);
         },
       });
   }
@@ -79,7 +80,7 @@ export class LoginFormComponent {
         })
       )
       .subscribe({
-        next: (response) => {
+        next: (_) => {
           this.loginAttemptStatuses = {
             isLoginSuccess: true,
             isErrorOccured: false,
@@ -93,7 +94,6 @@ export class LoginFormComponent {
             isErrorOccured: true,
             errorDescription: error.error,
           };
-          console.log(error);
         },
       });
   }

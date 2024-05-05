@@ -36,8 +36,9 @@
     [required]="formMode === 'register'"
   />
   <button
-    class="w-full bg-green-400 p-3 text-black rounded-xl mt-6 hover:bg-opacity-90 active:bg-opacity-70"
+    class="w-full bg-green-400 p-3 text-black rounded-xl mt-6 hover:bg-opacity-90 active:bg-opacity-70 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:hover:bg-gray-200"
     type="submit"
+    [disabled]="loginForm.form.invalid"
   >
     <span *ngIf="formMode === 'login'">Zaloguj się</span>
     <span *ngIf="formMode === 'register'">Utwórz konto</span>

@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+  IconDefinition,
+  faArrowAltCircleLeft,
+  faCircleCheck,
+  faCircleXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 import { ILoginAttemptStatuses } from 'src/app/interfaces/ilogin-attempt-statuses';
 
@@ -10,7 +15,7 @@ import { ILoginAttemptStatuses } from 'src/app/interfaces/ilogin-attempt-statuse
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  faArrow = faArrowAltCircleLeft;
+  faArrow: IconDefinition = faArrowAltCircleLeft;
 
   currentFormMode: string = 'login';
   loginAttemptStatuses: ILoginAttemptStatuses = {

@@ -1,10 +1,43 @@
-<div class="p-2 lg:p-4">
-  <div class="flex justify-between items-center">
+<div
+  class="grid grid-cols-1 gap-y-1 p-4 lg:p-8 bg-zinc-50 rounded-md w-full min-h-full"
+>
+  <app-user-bar></app-user-bar>
+  <div class="py-2 flex justify-between flex-col lg:flex-row gap-2">
+    <h1 class="font-poetsen text-2xl flex items-center">
+      Odkrywaj świat kuchni & poznawaj nowe smaki
+    </h1>
+    <div class="flex gap-5">
+      <span
+        class="flex flex-col justify-center items-center text-lg text-gray-400"
+        ><span class="text-green-400 text-3xl">122</span>Przepisy</span
+      >
+      <span
+        class="flex flex-col justify-center items-center text-lg text-gray-400"
+        ><span class="text-green-400 text-3xl">122</span>Użytkowników</span
+      >
+    </div>
+  </div>
+  <div class="flex gap-2">
+    <button class="category_btn">Włoska</button>
+    <button class="category_btn">Azjatycka</button>
+    <button class="category_btn">Francuska</button>
+    <button class="category_btn">Amerykańska</button>
+    <button class="category_btn">Afrykańska</button>
+  </div>
+
+  <!-- <div class="flex justify-between items-center">
     <div class="">
       <p class="font-bold">Witaj, Michał!</p>
       <p class="text-2xl text-black text-opacity-80">Odkrywaj nowe przepisy</p>
     </div>
-  </div>
-  <button (click)="accountService.logout()">logout</button>
+  </div> -->
+  <!-- <button (click)="accountService.logout()">logout</button> -->
   <app-recipes></app-recipes>
+  <div class="flex gap-4">
+    <app-recipe-preview></app-recipe-preview>
+    <app-recipe-preview></app-recipe-preview>
+    <app-recipe-preview></app-recipe-preview>
+    <app-recipe-preview></app-recipe-preview>
+    <app-recipe-preview></app-recipe-preview>
+  </div>
 </div>

@@ -21,6 +21,8 @@ import { RecipeInfoTagComponent } from './components/recipe-info-tag/recipe-info
 import { HttpClientModule } from '@angular/common/http';
 import { UserBarComponent } from './components/user-bar/user-bar.component';
 import { LoginSuccessNotificationComponent } from './components/login/login-success-notification/login-success-notification.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { RecipePreviewComponent } from './components/recipe-preview/recipe-preview.component';
 // import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @NgModule({
@@ -41,6 +43,8 @@ import { LoginSuccessNotificationComponent } from './components/login/login-succ
     RecipeInfoTagComponent,
     UserBarComponent,
     LoginSuccessNotificationComponent,
+    BannerComponent,
+    RecipePreviewComponent,
     // FetchDataComponent,
   ],
   imports: [

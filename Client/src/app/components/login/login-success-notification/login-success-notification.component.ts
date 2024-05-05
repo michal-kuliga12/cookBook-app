@@ -1,4 +1,9 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import {
+  IconDefinition,
+  faCircleCheck,
+  faCircleXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { ILoginAttemptStatuses } from 'src/app/interfaces/ilogin-attempt-statuses';
 
 @Component({
@@ -9,6 +14,9 @@ import { ILoginAttemptStatuses } from 'src/app/interfaces/ilogin-attempt-statuse
 export class LoginSuccessNotificationComponent implements OnChanges {
   @Input('formMode') formMode: string = 'login';
   @Input() loginAttemptStatuses: ILoginAttemptStatuses;
+  faxmark: IconDefinition = faCircleXmark;
+  facheck: IconDefinition = faCircleCheck;
+  isNotificationVisible: boolean = true;
 
   constructor() {
     this.loginAttemptStatuses = {

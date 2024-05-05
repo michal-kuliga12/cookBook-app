@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Dtos;
 using API.Entites;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -30,11 +31,20 @@ public class RecipesController : BaseApiController
         return recipe;
     }
 
-    // [HttpPost("{id}")]
-    // public async Task<ActionResult<Recipe>> AddRecipe()
-    // {
+    [HttpPost]
+    public async Task<ActionResult<RecipeDto>> AddRecipe(RecipeDto recipeDto)
+    {
+        var recipe = new Recipe()
+        {
+            RecipeName = recipeDto.RecipeName,
+            TimeToMake = recipeDto.TimeToMake,
+        };
 
-    // }
+        _context.Recipes.Add(recipe);
+        await _context.SaveChangesAsync();
+
+        return recipeDto;
+    }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Recipe>> DeleteRecipeById(int id)

@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       lobster: ["Lobster Two"],
       nunito: ["Nunito Sans"],
+      poetsen: ["Poetsen One"],
     },
     extend: {
       screens: {

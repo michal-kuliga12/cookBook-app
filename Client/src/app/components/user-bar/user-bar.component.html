@@ -1,13 +1,25 @@
-<div class="absolute top-5 right-5">
-  <a
-    *ngIf="!(accountService.currentUser$ | async)"
-    [routerLink]="'login'"
-    class="border py-2 px-4 rounded-xl transition hover:border-emerald-400 active:bg-emerald-100 active:border-emerald-200"
+<div class="flex justify-between items-center">
+  <div
+    class="inline-block border border-solid border-green-400 bg-gray-50 rounded outline-none"
   >
-    Zaloguj się
-  </a>
+    <input
+      type="text"
+      placeholder="Wyszukaj przepis..."
+      class="w-30 h-10 outline-none px-2 border-hidden overflow-hidden rounded"
+    />
+    <button class="py-2 px-4"><fa-icon [icon]="search"></fa-icon></button>
+  </div>
+  <div>
+    <a
+      *ngIf="!(accountService.currentUser$ | async)"
+      [routerLink]="'login'"
+      class="border py-2 px-4 rounded-xl transition hover:border-emerald-400 active:bg-emerald-100 active:border-emerald-200"
+    >
+      Zaloguj się
+    </a>
 
-  <button *ngIf="accountService.currentUser$ | async">
-    <fa-icon [icon]="userEl" class="text-4xl"></fa-icon>
-  </button>
+    <button *ngIf="accountService.currentUser$ | async">
+      <fa-icon [icon]="userEl" class="text-4xl"></fa-icon>
+    </button>
+  </div>
 </div>

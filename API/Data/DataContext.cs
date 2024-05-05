@@ -10,4 +10,6 @@ public class DataContext : DbContext
 
     public DbSet<Recipe> Recipes { get; set; }
     public DbSet<AppUser> Users { get; set; }
+    public DbSet<Ingredient> Ingredients { get; set; }
+    public DbSet<FoodIngredient> FoodIngredients { get; set; }
 }

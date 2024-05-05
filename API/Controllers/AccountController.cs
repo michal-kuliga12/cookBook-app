@@ -7,7 +7,6 @@ using API.Entites;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Any;
 
 namespace API.Controllers;
 
